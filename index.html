@@ -239,6 +239,30 @@ body {
 .cheat-group li:last-child { border-bottom: none; }
 .cheat-group li::before { content: "▸"; position: absolute; left: 0; color: var(--amber); }
 
+/* proof guide */
+.pg-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 22px; padding: 22px; opacity: 0; transform: translateY(14px); animation: rise .5s forwards; }
+.pg-head { display: flex; align-items: center; gap: 10px; border-bottom: 2px solid var(--ink); padding-bottom: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.pg-head h3 { font-family: var(--font-display); font-weight: 700; font-size: 21px; }
+.pg-pts { margin-left: auto; font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--hot); }
+.pg-sec { margin-bottom: 16px; }
+.pg-sec:last-child { margin-bottom: 0; }
+.pg-lab { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; font-weight: 700; margin-bottom: 8px; }
+.pg-lab.sig { color: var(--accent); }
+.pg-lab.ske { color: var(--amber); }
+.pg-lab.stp { color: var(--green); }
+.pg-lab.ex, .pg-lab.pit { color: var(--hot); }
+.pg-ul, .pg-ol { padding-left: 22px; margin: 0; }
+.pg-ul { list-style: none; }
+.pg-ul li { position: relative; padding: 5px 0; font-size: 14px; line-height: 1.65; }
+.pg-ul.ske li::before { content: "▪"; position: absolute; left: -16px; color: var(--amber); }
+.pg-ul.pit li::before { content: "!"; position: absolute; left: -15px; color: var(--hot); font-weight: 800; }
+.pg-ol li { padding: 4px 0; font-size: 14px; line-height: 1.65; }
+.pg-sig { font-size: 14.5px; }
+.pg-sec.example { background: color-mix(in srgb, var(--accent) 5%, var(--card)); border: 1px dashed var(--line); border-radius: 10px; padding: 16px; }
+.pg-q { font-size: 14.5px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed var(--line); }
+.pg-sollab { font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em; color: var(--green); margin-bottom: 8px; }
+.pg-sol { font-size: 14px; }
+
 mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
 
 /* mobile */
@@ -281,6 +305,7 @@ mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
 
     <div class="modes">
       <span class="nav-section-label">模式</span>
+      <button class="mode-btn" data-mode="proof"><span class="mi">🎯</span>证明题专项突破</button>
       <button class="mode-btn" data-mode="cheat"><span class="mi">⚡</span>考前速记(必背)</button>
       <button class="mode-btn" data-mode="exam"><span class="mi">📝</span>模拟考试</button>
     </div>
@@ -302,6 +327,7 @@ mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
 </div>
 
 <script src="data.js"></script>
+<script src="proofguide.js"></script>
 <script>
 const DATA = window.STUDY_DATA || { topics: [] };
 const LS_KEY = 'dm_mastered_v1';
@@ -441,6 +467,7 @@ function render() {
   if (state.view === 'topic') renderTopic(root);
   else if (state.view === 'cheat') renderCheat(root);
   else if (state.view === 'exam') renderExam(root);
+  else if (state.view === 'proof') renderProofGuide(root);
   updateProgress();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -518,6 +545,41 @@ function renderCheat(root) {
   });
 }
 
+/* ---------- proof guide ---------- */
+function renderProofGuide(root) {
+  const g = window.PROOF_GUIDE;
+  if (!g) { root.innerHTML = '<div class="empty"><div class="big">📭</div>证明题专项数据未加载</div>'; return; }
+  root.innerHTML = `
+    <div class="topic-head">
+      <div class="eyebrow"><span>PROOF · 专项突破</span><span class="badge-freq 必考">占 45–60 分</span></div>
+      <h2>🎯 证明题专项突破</h2>
+      <p class="summary" id="pgIntro"></p>
+    </div>
+    <div class="mustknow" open><div style="padding:16px 20px;"><div class="pg-lab stp" style="margin-bottom:10px;">💡 通用心法(每道证明题都适用)</div><ul class="pg-ul ske" id="pgTips"></ul></div></div>
+    <div id="pgTypes"></div>`;
+  renderRich(g.intro, root.querySelector('#pgIntro'));
+  const tipUl = root.querySelector('#pgTips');
+  (g.generalTips || []).forEach(t => { const li = document.createElement('li'); renderRich(t, li); tipUl.appendChild(li); });
+  const wrap = root.querySelector('#pgTypes');
+  (g.types || []).forEach((t, i) => {
+    const c = document.createElement('div'); c.className = 'pg-card'; c.style.animationDelay = Math.min(i * 60, 360) + 'ms';
+    c.innerHTML = `
+      <div class="pg-head"><h3>${t.name}</h3><span class="badge-freq ${t.freq}">${t.freq}</span><span class="pg-pts">${t.points}</span></div>
+      <div class="pg-sec"><div class="pg-lab sig">🔍 识别信号</div><div class="pg-sig"></div></div>
+      <div class="pg-sec"><div class="pg-lab ske">🦴 万能骨架(要证哪几条)</div><ul class="pg-ul ske skel"></ul></div>
+      <div class="pg-sec"><div class="pg-lab stp">🪜 解题步骤</div><ol class="pg-ol"></ol></div>
+      <div class="pg-sec example"><div class="pg-lab ex">📝 真题精讲 · ${t.example.source}</div><div class="pg-q"></div><div class="pg-sollab">解答</div><div class="pg-sol"></div></div>
+      <div class="pg-sec"><div class="pg-lab pit">⚠️ 踩分 / 避坑</div><ul class="pg-ul pit"></ul></div>`;
+    renderRich(t.signal, c.querySelector('.pg-sig'));
+    const ske = c.querySelector('ul.skel'); (t.skeleton || []).forEach(s => { const li = document.createElement('li'); renderRich(s, li); ske.appendChild(li); });
+    const ol = c.querySelector('.pg-ol'); (t.steps || []).forEach(s => { const li = document.createElement('li'); renderRich(s, li); ol.appendChild(li); });
+    renderRich(t.example.question, c.querySelector('.pg-q'));
+    renderRich(t.example.solution, c.querySelector('.pg-sol'));
+    const pit = c.querySelector('ul.pit'); (t.pitfalls || []).forEach(s => { const li = document.createElement('li'); renderRich(s, li); pit.appendChild(li); });
+    wrap.appendChild(c);
+  });
+}
+
 /* ---------- exam mode ---------- */
 let examTimer = null, examSeconds = 0;
 function pick(arr, n) { const a = arr.slice(); const out = []; while (a.length && out.length < n) { out.push(a.splice(Math.floor(Math.random() * a.length), 1)[0]); } return out; }
@@ -584,6 +646,11 @@ scrim.onclick = closeMobile;
 if (DATA.meta) document.getElementById('brandSub').textContent = `${DATA.meta.textbook || ''} · ${DATA.meta.school || ''}真题`;
 
 /* init */
+(function initHash() {
+  const h = (location.hash || '').replace('#', '');
+  if (['proof', 'cheat', 'exam'].includes(h)) state.view = h;
+  else if (h && DATA.topics.find(t => t.id === h)) { state.view = 'topic'; state.topicId = h; }
+})();
 buildNav();
 render();
 </script>
