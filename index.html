@@ -276,6 +276,61 @@ mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
   .scrim { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 40; }
   .scrim.show { display: block; }
 }
+
+/* ===== 专题精讲 · 难点突破 (scoped) ===== */
+.special-wrap{--crimson:#b3322c;--crimson-d:#8f2520;--gold:#b8862f;--teal:#2f6f6a;--indigo:#3a4a8c;--paper:#f7f4ec;--paper2:#fffdf8;--ink:#23201b;--ink2:#5c554a;--line:#e3ddd0;--line2:#d6cfbf;--shadow:0 2px 8px rgba(0,0,0,.06);color:var(--ink);font-family:inherit}
+.special-wrap .chapter-title{font-family:var(--font-display,serif);font-weight:900;font-size:24px;color:var(--crimson-d);display:flex;align-items:center;gap:10px;margin:0 0 6px}
+.special-wrap .cnum-t{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--gold);color:#fff;font-weight:900;font-size:16px}
+.special-wrap .special-intro{font-size:14px;line-height:1.8;color:var(--ink2);background:var(--paper2);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:10px;padding:12px 16px;margin:0 0 8px}
+.special-wrap mjx-container{overflow-x:auto;overflow-y:hidden;max-width:100%}
+.special-wrap .topic-mod{margin-top:30px;padding-top:8px;scroll-margin-top:74px}
+.special-wrap .mod-title{font-family:"Noto Serif SC",serif;font-weight:900;font-size:21px;color:var(--crimson-d);margin:0 0 10px;padding:8px 14px;background:linear-gradient(100deg,#fbeeea,#fff7e8);border-radius:10px;border-left:5px solid var(--crimson)}
+.special-wrap .mod-sub{font-family:"Noto Serif SC",serif;font-weight:700;font-size:16px;color:var(--ink);margin:24px 0 12px;display:flex;align-items:center;gap:8px}
+.special-wrap .mantra{margin:10px 0 4px;padding:12px 16px;background:linear-gradient(100deg,#fff7e8,#fdf4e3);border:1px solid #ecd9ad;border-radius:10px;font-family:"Noto Serif SC",serif;font-weight:700;font-size:16px;color:var(--crimson-d)}
+.special-wrap .mantra::before{content:"口诀 · ";color:var(--gold)}
+.special-wrap .weapon-grid{display:flex;flex-direction:column;gap:14px}
+.special-wrap .weapon{background:var(--paper2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+.special-wrap .w-name{font-family:"Noto Serif SC",serif;font-weight:700;font-size:16px;color:var(--crimson-d);margin-bottom:8px}
+.special-wrap .w-def, .special-wrap .w-prove{font-size:14px;margin:6px 0;line-height:1.7}
+.special-wrap .w-lab{display:inline-block;font-size:11px;font-weight:700;padding:1px 8px;border-radius:5px;margin-right:6px;vertical-align:1px}
+.special-wrap .w-def .w-lab{background:#eef2fb;color:var(--indigo)}
+.special-wrap .w-prove{background:#f7fbfa;border:1px dashed #bfdad6;border-radius:8px;padding:8px 10px}
+.special-wrap .w-prove .w-lab{background:#eaf3f2;color:var(--teal)}
+.special-wrap .box{background:var(--paper2);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow);font-size:14.5px;line-height:1.75}
+.special-wrap .box ul, .special-wrap .box ol{padding-left:22px;margin:8px 0}
+.special-wrap .box li{margin:5px 0}
+.special-wrap .box.recipe{border-left:4px solid var(--gold)}
+.special-wrap .box.tools{border-left:4px solid var(--indigo)}
+.special-wrap .box.check{border-left:4px solid var(--teal);background:#fbfdfc}
+.special-wrap .tprob{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px;box-shadow:var(--shadow);scroll-margin-top:74px}
+.special-wrap .tprob.learned-on{border-color:#cfe3cf;background:#fbfdfa}
+.special-wrap .tp-head{display:flex;align-items:center;margin-bottom:10px}
+.special-wrap .tp-num{font-family:"Noto Serif SC",serif;font-weight:700;font-size:17px;color:var(--crimson-d)}
+.special-wrap .learned{margin-left:auto;display:flex;gap:5px;align-items:center;font-size:12.5px;color:var(--ink2);cursor:pointer;user-select:none}
+.special-wrap .learned input{accent-color:var(--teal);width:15px;height:15px}
+.special-wrap .tp-stmt{font-size:15.5px;line-height:1.85;background:#fbf8f1;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.special-wrap .tp-classify{margin:12px 0;font-size:14.5px}
+.special-wrap .tag-classify{display:inline-block;font-size:11px;font-weight:700;color:#fff;background:var(--gold);padding:2px 9px;border-radius:6px;margin-right:8px}
+.special-wrap .tp-actions{display:flex;gap:10px;margin:6px 0 2px;flex-wrap:wrap}
+.special-wrap .rv{border:1px solid var(--line2);background:var(--paper);color:var(--ink2);padding:7px 16px;border-radius:9px;font-size:13.5px;cursor:pointer;font-family:inherit;transition:.15s}
+.special-wrap .rv:hover{border-color:var(--crimson);color:var(--crimson)}
+.special-wrap .rv.on{background:var(--crimson);color:#fff;border-color:var(--crimson)}
+.special-wrap .reveal-box{display:none;margin-top:12px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.special-wrap .reveal-box.show{display:block}
+.special-wrap .rb-lab{font-size:12px;font-weight:700;padding:6px 14px;color:#fff}
+.special-wrap .lab-idea{background:var(--indigo)}
+.special-wrap .lab-proof{background:var(--teal)}
+.special-wrap .rb-body{padding:12px 16px;font-size:14.5px;line-height:1.85;background:var(--paper2)}
+.special-wrap .tp-comment{margin:0 16px 14px;padding:12px 14px;background:#fff7e8;border:1px solid #ecd9ad;border-radius:10px;font-size:13.5px;line-height:1.75}
+.special-wrap .cm-lab{display:inline-block;font-size:11px;font-weight:700;color:#fff;background:var(--gold);padding:2px 9px;border-radius:6px;margin-right:8px}
+.special-wrap .trap{background:var(--paper2);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:12px;box-shadow:var(--shadow)}
+.special-wrap .trap-q{display:flex;gap:10px;align-items:flex-start}
+.special-wrap .trap-num{display:grid;place-items:center;min-width:24px;height:24px;border-radius:7px;background:var(--ink);color:var(--paper2);font-weight:700;font-size:13px}
+.special-wrap .trap-stmt{flex:1;font-size:15px}
+.special-wrap .trap-a{margin-top:10px}
+.special-wrap .trap-verdict{display:inline-block;font-weight:700;color:var(--crimson-d);background:#fbeeea;border:1px dashed #e6b3ae;border-radius:7px;padding:2px 12px;margin:10px 0 0 12px}
+.special-wrap .trap-a .rb-body{background:transparent;padding-top:8px}
+
 </style>
 </head>
 <body>
@@ -305,7 +360,7 @@ mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
 
     <div class="modes">
       <span class="nav-section-label">模式</span>
-      <button class="mode-btn" data-mode="proof"><span class="mi">🎯</span>证明题专项突破</button>
+      <button class="mode-btn" data-mode="special"><span class="mi">🎯</span>专题精讲·难点突破</button>
       <button class="mode-btn" data-mode="cheat"><span class="mi">⚡</span>考前速记(必背)</button>
       <button class="mode-btn" data-mode="exam"><span class="mi">📝</span>模拟考试</button>
     </div>
@@ -327,7 +382,7 @@ mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
 </div>
 
 <script src="data.js"></script>
-<script src="proofguide.js"></script>
+<script src="special.js"></script>
 <script>
 const DATA = window.STUDY_DATA || { topics: [] };
 const LS_KEY = 'dm_mastered_v1';
@@ -467,7 +522,7 @@ function render() {
   if (state.view === 'topic') renderTopic(root);
   else if (state.view === 'cheat') renderCheat(root);
   else if (state.view === 'exam') renderExam(root);
-  else if (state.view === 'proof') renderProofGuide(root);
+  else if (state.view === 'special') renderSpecial(root);
   updateProgress();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -545,39 +600,27 @@ function renderCheat(root) {
   });
 }
 
-/* ---------- proof guide ---------- */
-function renderProofGuide(root) {
-  const g = window.PROOF_GUIDE;
-  if (!g) { root.innerHTML = '<div class="empty"><div class="big">📭</div>证明题专项数据未加载</div>'; return; }
-  root.innerHTML = `
-    <div class="topic-head">
-      <div class="eyebrow"><span>PROOF · 专项突破</span><span class="badge-freq 必考">占 45–60 分</span></div>
-      <h2>🎯 证明题专项突破</h2>
-      <p class="summary" id="pgIntro"></p>
-    </div>
-    <div class="mustknow" open><div style="padding:16px 20px;"><div class="pg-lab stp" style="margin-bottom:10px;">💡 通用心法(每道证明题都适用)</div><ul class="pg-ul ske" id="pgTips"></ul></div></div>
-    <div id="pgTypes"></div>`;
-  renderRich(g.intro, root.querySelector('#pgIntro'));
-  const tipUl = root.querySelector('#pgTips');
-  (g.generalTips || []).forEach(t => { const li = document.createElement('li'); renderRich(t, li); tipUl.appendChild(li); });
-  const wrap = root.querySelector('#pgTypes');
-  (g.types || []).forEach((t, i) => {
-    const c = document.createElement('div'); c.className = 'pg-card'; c.style.animationDelay = Math.min(i * 60, 360) + 'ms';
-    c.innerHTML = `
-      <div class="pg-head"><h3>${t.name}</h3><span class="badge-freq ${t.freq}">${t.freq}</span><span class="pg-pts">${t.points}</span></div>
-      <div class="pg-sec"><div class="pg-lab sig">🔍 识别信号</div><div class="pg-sig"></div></div>
-      <div class="pg-sec"><div class="pg-lab ske">🦴 万能骨架(要证哪几条)</div><ul class="pg-ul ske skel"></ul></div>
-      <div class="pg-sec"><div class="pg-lab stp">🪜 解题步骤</div><ol class="pg-ol"></ol></div>
-      <div class="pg-sec example"><div class="pg-lab ex">📝 真题精讲 · ${t.example.source}</div><div class="pg-q"></div><div class="pg-sollab">解答</div><div class="pg-sol"></div></div>
-      <div class="pg-sec"><div class="pg-lab pit">⚠️ 踩分 / 避坑</div><ul class="pg-ul pit"></ul></div>`;
-    renderRich(t.signal, c.querySelector('.pg-sig'));
-    const ske = c.querySelector('ul.skel'); (t.skeleton || []).forEach(s => { const li = document.createElement('li'); renderRich(s, li); ske.appendChild(li); });
-    const ol = c.querySelector('.pg-ol'); (t.steps || []).forEach(s => { const li = document.createElement('li'); renderRich(s, li); ol.appendChild(li); });
-    renderRich(t.example.question, c.querySelector('.pg-q'));
-    renderRich(t.example.solution, c.querySelector('.pg-sol'));
-    const pit = c.querySelector('ul.pit'); (t.pitfalls || []).forEach(s => { const li = document.createElement('li'); renderRich(s, li); pit.appendChild(li); });
-    wrap.appendChild(c);
+/* ---------- 专题精讲 · 难点突破 ---------- */
+function renderSpecial(root) {
+  const html = window.SPECIAL_HTML;
+  if (!html) { root.innerHTML = '<div class="empty"><div class="big">📭</div>专题精讲数据未加载</div>'; return; }
+  root.innerHTML = '<div class="special-wrap">' + html + '</div>';
+  root.querySelectorAll('.tprob, .trap').forEach(pp => {
+    [['.rv-idea', '.tp-idea'], ['.rv-proof', '.tp-proof'], ['.rv-trap', '.trap-a']].forEach(pair => {
+      const b = pp.querySelector(pair[0]), x = pp.querySelector(pair[1]);
+      if (b && x) b.addEventListener('click', () => { const on = x.classList.toggle('show'); b.classList.toggle('on', on); });
+    });
   });
+  root.querySelectorAll('.learned-cb').forEach(cb => {
+    const id = 'sp_' + cb.dataset.id, pp = cb.closest('.tprob');
+    if (mastered.has(id)) { cb.checked = true; if (pp) pp.classList.add('learned-on'); }
+    cb.addEventListener('change', () => {
+      if (cb.checked) mastered.add(id); else mastered.delete(id);
+      if (pp) pp.classList.toggle('learned-on', cb.checked);
+      saveMastered(); updateProgress();
+    });
+  });
+  typeset(root);
 }
 
 /* ---------- exam mode ---------- */
@@ -648,11 +691,100 @@ if (DATA.meta) document.getElementById('brandSub').textContent = `${DATA.meta.te
 /* init */
 (function initHash() {
   const h = (location.hash || '').replace('#', '');
-  if (['proof', 'cheat', 'exam'].includes(h)) state.view = h;
+  if (['proof','special','cheat','exam'].includes(h)) state.view = (h==='proof'?'special':h);
   else if (h && DATA.topics.find(t => t.id === h)) { state.view = 'topic'; state.topicId = h; }
 })();
 buildNav();
 render();
+</script>
+<script>
+/* ===== 彩蛋 & 趣味机制 ===== */
+(function(){
+  // ---- styles ----
+  var st=document.createElement('style');
+  st.textContent=
+  '.toast-wrap{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);z-index:9999;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}'
+  +'.toast{background:rgba(28,30,42,.94);color:#fff;padding:10px 18px;border-radius:12px;font-size:14px;font-weight:600;box-shadow:0 8px 26px rgba(0,0,0,.3);opacity:0;transform:translateY(14px);transition:.32s;max-width:86vw;text-align:center}'
+  +'.toast.show{opacity:1;transform:translateY(0)}'
+  +'.toast.ach{background:linear-gradient(100deg,#b8862f,#b3322c);font-size:15px}'
+  +'.fx-emoji{position:fixed;top:-40px;font-size:26px;z-index:9998;pointer-events:none;animation:fxfall linear forwards}'
+  +'@keyframes fxfall{to{transform:translateY(110vh) rotate(360deg);opacity:.85}}'
+  +'.luck-modal{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.45)}'
+  +'.luck-modal.show{display:flex}'
+  +'.luck-card{background:#fffdf8;color:#23201b;width:min(340px,86vw);border-radius:18px;padding:26px 24px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4);border:2px solid #e3ddd0;animation:luckin .35s}'
+  +'@keyframes luckin{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}'
+  +'.luck-card .lvl{font-family:serif;font-weight:900;font-size:40px;color:#b3322c;margin:4px 0 8px}'
+  +'.luck-card .msg{font-size:15px;line-height:1.8;margin:8px 0}'
+  +'.luck-card .yj{font-size:13px;color:#5c554a;margin-top:10px}'
+  +'.luck-card button{margin-top:16px;border:none;background:#b3322c;color:#fff;padding:9px 22px;border-radius:10px;font-size:14px;cursor:pointer;font-family:inherit}'
+  +'.brand h1{cursor:pointer;position:relative}.brand h1:hover{filter:brightness(1.08)}';
+  document.head.appendChild(st);
+
+  var wrap=document.createElement('div');wrap.className='toast-wrap';document.body.appendChild(wrap);
+  function toast(msg,cls){var t=document.createElement('div');t.className='toast'+(cls?' '+cls:'');t.innerHTML=msg;wrap.appendChild(t);
+    requestAnimationFrame(function(){t.classList.add('show');});
+    setTimeout(function(){t.classList.remove('show');setTimeout(function(){t.remove();},350);},cls==='ach'?2600:1700);}
+
+  function rain(emojis,n){for(var i=0;i<n;i++){(function(k){setTimeout(function(){
+    var e=document.createElement('div');e.className='fx-emoji';e.textContent=emojis[k%emojis.length];
+    e.style.left=(Math.random()*98)+'vw';var d=2.2+Math.random()*2.2;e.style.animationDuration=d+'s';
+    document.body.appendChild(e);setTimeout(function(){e.remove();},d*1000+200);},k*70);})(i);}}
+
+  // ---- learn toasts + milestones (hook updateProgress) ----
+  var LEARN=['又拿下一道 ✅','稳!这题再也跑不掉了 📈','+1 经验值,离上岸更近了 🏊','这题会了,考场上就是送分 🎁','套路记住了,它就是你的了 💪','学神进度 +1 🧠','漂亮,继续连击 🔥'];
+  var ACH=[[10,'🌱 成就解锁:小试牛刀'],[25,'🔥 成就解锁:渐入佳境'],[50,'⚔️ 成就解锁:半壁江山'],[75,'🚀 成就解锁:胜券在握'],[100,'🏆 成就解锁:全员上岸!离散数学被你拿下了!']];
+  var seen={};try{seen=JSON.parse(localStorage.getItem('dm_ach_v1')||'{}');}catch(e){}
+  function fireMs(pct){ACH.forEach(function(a){if(pct>=a[0]&&!seen[a[0]]){seen[a[0]]=1;localStorage.setItem('dm_ach_v1',JSON.stringify(seen));
+    toast(a[1],'ach');if(a[0]>=50)rain(['🎉','✨','📚','🎓','💯'],a[0]>=100?40:16);}});}
+  window.__celebrate=function(){toast(LEARN[Math.floor(Math.random()*LEARN.length)]);};
+
+  var last=-1;
+  function readDone(){return parseInt((document.getElementById('doneCount')||{}).textContent)||0;}
+  function readTot(){return parseInt((document.getElementById('totalCount')||{}).textContent)||0;}
+  var orig=window.updateProgress;
+  window.updateProgress=function(){var r=orig.apply(this,arguments);var dc=readDone(),tc=readTot();
+    if(last>=0&&dc>last){window.__celebrate();}
+    if(tc>0){var pct=Math.round(100*dc/tc);fireMs(pct);}
+    last=dc;return r;};
+  setTimeout(function(){last=readDone();},300);
+
+  // ---- 考运签 fortune (click brand title) ----
+  var FORT=[
+   ['大吉','主析取范式一遍过,监考老师对你笑。','宜:写满步骤分 · 忌:跳步'],
+   ['大吉','双射证明单满两开花,反函数自己跳出来。','宜:先单射后满射 · 忌:只证一半'],
+   ['中吉','群论四步闭合验,逆元单位元手到擒来。','宜:先验封闭性 · 忌:漏结合律'],
+   ['中吉','画哈斯图手不抖,偏序关系样样有。','宜:标全极大极小 · 忌:连错盖住关系'],
+   ['吉','复合函数记牢"先F后G",屈婉玲附体。','宜:写清复合方向 · 忌:顺序写反'],
+   ['吉','握手定理 Σd=2m,图论填空闭眼拿。','宜:数清奇度点 · 忌:忘了自环算两度'],
+   ['小吉','真值表不会错,就是有点慢,带块表去。','宜:稳扎稳打 · 忌:慌'],
+   ['末吉','梦到了环和域……醒醒,今年不考!','宜:只背会考的 · 忌:钻牛角尖'],
+   ['大吉','等价关系三件套,自反对称传递全跑过。','宜:逐条"任取…由定义…" · 忌:漏证一条']
+  ];
+  var lm=document.createElement('div');lm.className='luck-modal';
+  lm.innerHTML='<div class="luck-card"><div style="font-size:13px;letter-spacing:.3em;color:#b8862f;font-weight:700">离散数学 · 考运签</div><div class="lvl" id="luckLvl"></div><div class="msg" id="luckMsg"></div><div class="yj" id="luckYj"></div><button id="luckClose">再抽一签 / 关闭</button></div>';
+  document.body.appendChild(lm);
+  function draw(){var f=FORT[Math.floor(Math.random()*FORT.length)];
+    document.getElementById('luckLvl').textContent=f[0];
+    document.getElementById('luckMsg').textContent=f[1];
+    document.getElementById('luckYj').textContent=f[2];
+    lm.classList.add('show');if(f[0]==='大吉')rain(['🀄','🎴','✨','🧧'],14);}
+  lm.addEventListener('click',function(e){if(e.target===lm||e.target.id==='luckClose')lm.classList.remove('show');else if(e.target.id!=='luckClose')draw();});
+  document.getElementById('luckClose').onclick=function(){lm.classList.remove('show');};
+  var bt=document.querySelector('.brand h1');
+  if(bt){bt.title='点我抽一支考运签 🀄';bt.addEventListener('click',draw);}
+
+  // ---- Konami code: 学神附体 ----
+  var seq=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'],pos=0;
+  document.addEventListener('keydown',function(e){var k=e.key.length===1?e.key.toLowerCase():e.key;
+    if(k===seq[pos]){pos++;if(pos===seq.length){pos=0;
+      toast('🎓 学神附体!开挂模式启动——本场必过!','ach');rain(['🎓','📚','💯','🧠','⚡','🏆'],60);}}
+    else{pos=(k===seq[0])?1:0;}});
+
+  // ---- console egg ----
+  try{console.log('%c离散数学刷题站 · 祝你上岸 🏊','color:#b3322c;font-size:16px;font-weight:bold');
+  console.log('%c彩蛋提示:点标题抽考运签;试试 ↑↑↓↓←→←→BA','color:#b8862f');}catch(e){}
+})();
+
 </script>
 </body>
 </html>
